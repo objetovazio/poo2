@@ -11,6 +11,12 @@ public class MetodoFabrica {
         
         formato = FabricaFormato.geraFormato("metodoestatico.fabrica.FormatoJpeg");
         formato.gera();
+        
+        formato = FabricaFormato.geraFormato("metodoestatico.fabrica.FormatoGif");
+        formato.gera();
+        
+        formato = FabricaFormato.geraFormato("metodoestatico.fabrica.FormatoBmp");
+        formato.gera();
     }    
 }
 
