@@ -40,16 +40,20 @@ public class EditorTexto extends javax.swing.JFrame {
 
     
     private void addButtons(String tema){
+        FabricaAbstrataBotoes fabrica = null;
         
         if(tema.equalsIgnoreCase("tema1")){
+            fabrica = new FabricaPadrao();
+            
         }else if(tema.equalsIgnoreCase("tema2")){
+            fabrica = new FabricaBotoesIcones();
         }                
                 
-        cancel = new JButton();
-        ok = new JButton();
-        ok.setText("OK");
-        cancel.setText("Cancel");
+        ok = fabrica.criaBotaoOK();
+        cancel = fabrica.criaBotaoCancel();
         
+        //ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ok-icon.png")));
+        //cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cancel-icon.jpg")));
                 
         jLabel1 = new javax.swing.JLabel();
         jTextArea1.setColumns(20);
@@ -122,13 +126,10 @@ public class EditorTexto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

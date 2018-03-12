@@ -30,6 +30,7 @@ public class ButtonOK  extends JButton{
             Logger.getLogger(ButtonCancel.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setIcon(new ImageIcon(img));
+        this.setText("OK");
     }
     
 }
