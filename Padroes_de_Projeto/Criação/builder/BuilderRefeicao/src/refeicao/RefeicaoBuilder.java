@@ -17,4 +17,8 @@ public abstract class RefeicaoBuilder {
         refeicao.setBebida(new Refrigerante(sabor));        
     }   
     
+    public void preparaBatata(){
+        refeicao.setBatata(new Batata());
+    }
+    
 }
