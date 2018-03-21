@@ -9,6 +9,7 @@ public class Cliente
      private String telefone;
      private String email;
      private double totalCompras;
+     private String dataNascimento;
 
     public String getId() {
         return id;
@@ -48,6 +49,20 @@ public class Cliente
 
     public void setTotalCompras(double totalCompras) {
         this.totalCompras = totalCompras;
+    }
+
+    /**
+     * @return the dataNascimento
+     */
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    /**
+     * @param dataNascimento the dataNascimento to set
+     */
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
           
     
