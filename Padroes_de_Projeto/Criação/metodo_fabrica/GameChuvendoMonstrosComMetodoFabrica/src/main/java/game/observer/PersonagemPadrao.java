@@ -14,8 +14,8 @@ import org.newdawn.slick.SlickException;
  *
  * @author felipe
  */
-class PersonagemPadrao extends Observavel {    
-    Image image;
+class PersonagemPadrao extends Observavel implements Cloneable{    
+    private Image image;
     int posX;
     int posY;
     public PersonagemPadrao(String pathImage, int posX, int posY){        
@@ -45,5 +45,26 @@ class PersonagemPadrao extends Observavel {
 
     public void setPosY(int posY) {
         this.posY = posY;
+    }
+    
+    @Override
+    public Object clone() {
+        Object obj = null;
+        
+        try{
+            obj = super.clone();
+        }
+        catch(CloneNotSupportedException ex){
+            ex.printStackTrace();
+        }
+        
+        return obj;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

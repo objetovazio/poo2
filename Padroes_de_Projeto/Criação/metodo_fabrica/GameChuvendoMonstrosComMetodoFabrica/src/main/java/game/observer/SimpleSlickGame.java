@@ -34,13 +34,14 @@ public class SimpleSlickGame extends BasicGame {
 
     public SimpleSlickGame(String gamename) {
         super(gamename);        
-        fabricaDeInimigos =  new FabricaDeInimigos(); 
+       
     }
 
     @Override
     public void init(GameContainer gc) throws SlickException {
         
         try {
+            fabricaDeInimigos =  new FabricaDeInimigos(); 
             File file = new File(".");
             String filePath = file.getCanonicalPath();
             

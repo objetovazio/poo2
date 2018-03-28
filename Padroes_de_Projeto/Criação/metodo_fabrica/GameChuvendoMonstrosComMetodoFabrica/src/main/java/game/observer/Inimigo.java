@@ -6,16 +6,18 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * @author felipe
  */
-    public class Inimigo extends PersonagemPadrao implements Observador{
+    public class Inimigo extends PersonagemPadrao implements Observador {
         
     
     public Inimigo(String pathImage, int posX, int posY) {
         super(pathImage, posX, posY);
     }
+    
     @Override
     public void update(Observavel ob) {
         moveInimigo((Heroi) ob);
     }
+    
     private void moveInimigo(Heroi heroi){        
         
         if(this.posY >= 400){
