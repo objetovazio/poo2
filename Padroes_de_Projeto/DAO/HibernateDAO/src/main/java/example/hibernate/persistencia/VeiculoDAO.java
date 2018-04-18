@@ -10,8 +10,5 @@ import java.util.List;
  * @author felipe
  */
 public interface VeiculoDAO extends GenericDAO<Veiculo> {
-    
-       public List<Veiculo> buscaVeiculosApartirDoAno(int ano);
-       
-    
+       public List<Veiculo> buscaVeiculosApartirDoAno(int ano);   
 }
