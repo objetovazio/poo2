@@ -1,6 +1,8 @@
 
 package adaptercliente;
 
+import adaptercliente.model.AdapterCliente;
+import adaptercliente.model.ICliente;
 import adaptercliente.visao.VisaoCliente;
 import lib.ClienteExterno;
 
@@ -12,15 +14,18 @@ public class MainComAdapter {
     public static void main(String[] args) {
         
         ClienteExterno ce = new ClienteExterno();
-        ce.setCelular("9997777");
+        ce.setCelular("99996-7777");
         ce.setDddCelular("027");
-        ce.setTelefone("3333");
+        ce.setTelefone("3333-8888");
         ce.setDddTelefone("027");
         ce.setEmail("jose.silva@email.com");
         ce.setNome("Jose");
         ce.setSobreNome("Silva");
+        
+        AdapterCliente ac = new AdapterCliente(ce);
+        
         VisaoCliente visao = new VisaoCliente();
-        visao.setInformacoesCliente(cliente);//espera um Cliente
+        visao.setInformacoesCliente(ac);//espera um Cliente
         visao.setVisible(true); 
         
         
