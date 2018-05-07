@@ -10,6 +10,16 @@
         <servlet-class>RecebeJSON</servlet-class>
     </servlet>
     
+     <servlet-mapping>
+        <servlet-name>RecebeCarro</servlet-name>
+        <url-pattern>/recebecarro</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RecebeCarro</servlet-name>
+        <servlet-class>RecebeCarro</servlet-class>
+    </servlet>
+    
     <servlet>
         <servlet-name>ExemploGet</servlet-name>
         <servlet-class>ExemploGet</servlet-class>
@@ -37,12 +47,15 @@
         <servlet-name>ExemploGet</servlet-name>
         <url-pattern>/exemploget</url-pattern>
     </servlet-mapping>
+    
+   
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>formulario.html</welcome-file>
+        <welcome-file>formularioCarro.html</welcome-file>
     </welcome-file-list>
 </web-app>

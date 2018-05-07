@@ -1,24 +1,17 @@
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ExemploGet extends HttpServlet {
 
-    private HashMap usuarios = new HashMap();
+public class RecebeCarro extends HttpServlet {
 
-    public ExemploGet() {
-
-        usuarios.put("001", "Felipe");
-        usuarios.put("002", "Joao");
-    }
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+   
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
@@ -26,13 +19,18 @@ public class ExemploGet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Minha Primeira Página</title>");
+            out.println("<title>Servlet RecebeDados</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Meu Primeiro Servlet");
-            out.println("<h1>Id: " + request.getParameter("id") + "</h1>");
-            out.println("<h1>Nome: " + usuarios.get(request.getParameter("id")) + "</h1>");
-
+            out.println("<h1>Servidor Recebeu:<br></h1>");
+            out.println("<h1>Modelo: " + request.getParameter("modelo") + "</h1>");
+            out.println("<h1>Placa: " + request.getParameter("placa") + "</h1>");    
+            out.println("<h1>Renavam: " + request.getParameter("renavam") + "</h1>");    
+            out.println("<h1>Ano: " + request.getParameter("ano") + "</h1>");
+            out.println("<h1>Quilometragem: " + request.getParameter("km") + "</h1>");
+            out.println("<h1>Acessórios: " + request.getParameter("acessorios") + "</h1>");
+            out.println("<h1>Valor: " + request.getParameter("valor") + "</h1>");
+            
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -40,24 +38,24 @@ public class ExemploGet extends HttpServlet {
         }
     }
 
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        System.out.println("DO GET");
         processRequest(request, response);
     }
 
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        System.out.println("DO POST");
         processRequest(request, response);
     }
 
+ 
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }
+        return "Servlet Recebe Dados";
+    }// </editor-fold>
+
 }
