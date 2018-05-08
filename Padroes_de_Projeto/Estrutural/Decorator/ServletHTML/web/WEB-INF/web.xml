@@ -12,7 +12,7 @@
     
      <servlet-mapping>
         <servlet-name>RecebeCarro</servlet-name>
-        <url-pattern>/recebecarro</url-pattern>
+        <url-pattern>/RecebeCarro</url-pattern>
     </servlet-mapping>
     
     <servlet>
