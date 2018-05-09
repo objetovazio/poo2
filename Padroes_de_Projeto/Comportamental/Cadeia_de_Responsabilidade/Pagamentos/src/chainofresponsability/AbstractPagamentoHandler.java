@@ -19,6 +19,7 @@ public abstract class AbstractPagamentoHandler implements PagamentoHandler {
         
     }
     protected abstract int getTipoPagamento();
+    
     protected int perguntaPagamento(String mensagem, int valor){
         String valorPagamento = JOptionPane.showInputDialog(mensagem);
         int valorRestante = valor - Integer.parseInt(valorPagamento);
