@@ -138,7 +138,7 @@ public class TelaPagamentos extends javax.swing.JFrame {
        PagamentoHandler boleto = new BoletoHandler();               
        PagamentoHandler cartao = new CartaoHandler();
        PagamentoHandler cheque = new ChequeHandler();
-        PagamentoHandler dinheiro = new DinheiroHandler();
+       PagamentoHandler dinheiro = new DinheiroHandler();
         
        boleto.setNextHandler(cartao);
        cartao.setNextHandler(cheque);
@@ -155,8 +155,7 @@ public class TelaPagamentos extends javax.swing.JFrame {
        if(caixaSelecaoDinheiro.isSelected())
           lista.add(DinheiroHandler.DINHEIRO);      
        
-       boleto.processHander(lista, Integer.parseInt(valorFatura.getText()));                       
-       
+       boleto.processHander(lista, Integer.parseInt(valorFatura.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void caixaSelecaoChequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaSelecaoChequeActionPerformed

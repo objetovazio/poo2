@@ -6,8 +6,21 @@ public class NotaVinteHandler extends AbstractSaqueHandler {
     public int quantidade = 0;
 
     @Override
-    protected int handleSaque(int valor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    protected double handleSaque(double valor) {
+        int qtd = (int) (valor / this.VALOR);
+        double valorRestante = 0;
+        
+        valorRestante = valor -(qtd * this.VALOR);
+        this.quantidade += qtd;
+        
+        return valorRestante;
     }
+    
+    @Override
+    protected String print() {
+        if(quantidade > 0) return "Nota " + this.VALOR + ": " + quantidade + "\n";
+        return "";
+    }
+
 
 }

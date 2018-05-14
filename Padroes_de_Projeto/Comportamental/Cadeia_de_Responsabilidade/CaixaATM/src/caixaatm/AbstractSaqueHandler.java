@@ -14,20 +14,21 @@ import javax.swing.JOptionPane;
 public abstract class AbstractSaqueHandler implements SaqueHandler {
 
     SaqueHandler saqueHandler;
-
+    
     @Override
     public void setNextHandler(SaqueHandler handler) {
         this.saqueHandler = handler;
     }
 
-    protected abstract int handleSaque(int valor);
+    protected abstract double handleSaque(double valor);
     
     @Override
-    public void processHander(int valor) {
+    public void processHander(double valor) {
         valor = handleSaque(valor);
         if (valor > 0) {
             this.saqueHandler.processHander(valor);
         }
     }
 
+    protected abstract String print();
 }

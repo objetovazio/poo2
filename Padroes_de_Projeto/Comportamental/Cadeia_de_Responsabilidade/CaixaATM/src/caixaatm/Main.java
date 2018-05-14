@@ -16,12 +16,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        NotaCemHandler notaCemHandler = new NotaCemHandler();
-        
-        System.out.println(notaCemHandler.handleSaque(125) + " " + notaCemHandler.quantidade);
-         
-        
+        CaixaATM caixaATM = new CaixaATM();
+        caixaATM.setVisible(true);
     }
     
 }

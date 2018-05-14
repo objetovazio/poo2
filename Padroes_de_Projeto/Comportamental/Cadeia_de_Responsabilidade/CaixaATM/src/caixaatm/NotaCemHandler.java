@@ -6,10 +6,20 @@ public class NotaCemHandler extends AbstractSaqueHandler {
     public int quantidade = 0;
 
     @Override
-    protected int handleSaque(int valor) {
-        int qtd = valor / 100;
-        valor -= qtd * 100;
-        return valor;
+    protected double handleSaque(double valor) {
+        int qtd = (int) (valor / this.VALOR);
+        double valorRestante = 0;
+        
+        valorRestante = valor -(qtd * this.VALOR);
+        this.quantidade += qtd;
+        
+        return valorRestante;
+    }
+
+    @Override
+    protected String print() {
+        if(quantidade > 0) return "Nota " + this.VALOR + ": " + quantidade + "\n";
+        return "";
     }
 
 }

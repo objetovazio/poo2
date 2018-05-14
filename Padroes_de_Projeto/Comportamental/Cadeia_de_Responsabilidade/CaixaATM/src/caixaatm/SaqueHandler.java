@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface SaqueHandler {
     public void setNextHandler(SaqueHandler handler);
-    public void processHander(int valor);   
+    public void processHander(double valor);   
 }

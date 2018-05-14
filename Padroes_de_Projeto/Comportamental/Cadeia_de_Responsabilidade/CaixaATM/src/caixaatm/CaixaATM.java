@@ -5,6 +5,9 @@
  */
 package caixaatm;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author 20161bsi0349
@@ -27,21 +30,82 @@ public class CaixaATM extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
+        buttonSacar = new javax.swing.JToggleButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Quando deseja sacar?");
+
+        buttonSacar.setText("Sacar");
+        buttonSacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSacarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonSacar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonSacar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSacarActionPerformed
+        // TODO add your handling code here:
+        NotaCemHandler notaCemHandler = new NotaCemHandler();
+        NotaCinquentaHandler notaCinquentaHandler = new NotaCinquentaHandler();
+        NotaVinteHandler notaVinteHandler = new NotaVinteHandler();
+        NotaDezHandler notaDezHandler = new NotaDezHandler();
+        NotaCincoHandler notaCincoHandler = new NotaCincoHandler();
+        
+        notaCemHandler.setNextHandler(notaCinquentaHandler);
+        notaCinquentaHandler.setNextHandler(notaVinteHandler);
+        notaVinteHandler.setNextHandler(notaDezHandler);
+        notaDezHandler.setNextHandler(notaCincoHandler);
+        
+        double valor = Double.parseDouble(txtValor.getText().replace(',', '.'));
+        
+        if(valor % 5 > 0){
+            JOptionPane.showMessageDialog(this, "Valor inválido. Apenas Multiplos (5, 10, 15, 20, 50, 100) ");
+        }
+        else{
+            notaCemHandler.processHander(valor);
+            
+            String strShow = notaCemHandler.print() + 
+                    notaCinquentaHandler.print() + 
+                    notaVinteHandler.print() +
+                    notaDezHandler.print() +
+                    notaCincoHandler.print();
+            
+            JOptionPane.showMessageDialog(this, strShow);
+        }
+    }//GEN-LAST:event_buttonSacarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +143,8 @@ public class CaixaATM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton buttonSacar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
