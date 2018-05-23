@@ -17,7 +17,7 @@ import javax.swing.JButton;
  *
  * @author felipe
  */
-public class Salvar extends JButton{
+public class Salvar extends JButton implements Command{
 
     public javax.swing.JTextField text;
     
@@ -37,6 +37,11 @@ public class Salvar extends JButton{
             Logger.getLogger(Salvar.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+
+    @Override
+    public void execute() {
+        this.salvar();
     }
     
 }

@@ -13,7 +13,7 @@ import javax.swing.undo.UndoManager;
  *
  * @author felipe
  */
-public class Avancar extends JButton  {
+public class Avancar extends JButton implements Command {
 
      private UndoManager  undo;
      
@@ -26,6 +26,9 @@ public class Avancar extends JButton  {
           undo.redo(); 
       }        
      }
-      
-    
+
+    @Override
+    public void execute() {
+        this.doAvancar();
+    }
 }

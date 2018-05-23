@@ -41,12 +41,7 @@ public class TelaCommand extends javax.swing.JFrame {
             @Override              
             public void actionPerformed(ActionEvent e) {               
                 Object o = e.getSource();
-                if (o instanceof  Avancar)                
-                  ((Avancar)o).doAvancar();                
-                else if (o instanceof Voltar)                                
-                  ((Voltar)o).doVoltar();                
-                else if (o instanceof Salvar)                                                
-                  ((Salvar)o).salvar();                                
+                ((Command)o).execute(); 
             }
         };
         avancar.addActionListener(listener);

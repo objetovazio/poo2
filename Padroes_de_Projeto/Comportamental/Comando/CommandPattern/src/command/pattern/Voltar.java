@@ -16,7 +16,7 @@ import javax.swing.undo.UndoManager;
  *
  * @author felipe
  */
-public class Voltar extends JButton {
+public class Voltar extends JButton implements Command{
     
     private UndoManager  undo;
     
@@ -28,6 +28,11 @@ public class Voltar extends JButton {
         if (this.undo.canUndo()){
            this.undo.undo();
        }
+    }
+    
+    @Override
+    public void execute() {
+        this.doVoltar();
     }
         
 }
