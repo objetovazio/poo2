@@ -13,13 +13,11 @@ import java.util.concurrent.CountDownLatch;
 public class MoveFile {
 
     private static File listaFiles[] = null;
-    public static CountDownLatch latch;
-
+    
     public static void main(String args[]) throws IOException, InterruptedException {
         
         final long startTime = System.currentTimeMillis();// tempo incial
         listaFiles = MoveFile.getSingleTonListaFiles(); //le arquivos do diretorio e coloca na listaFiles         
-        latch = new CountDownLatch(listaFiles.length);
         
         System.out.println("Iniciando copiar de arquivos");
         
@@ -43,7 +41,6 @@ public class MoveFile {
         thread2 = new Thread(rmf2);
         thread2.start();
         
-        //latch.await();        
         final long elapsedTimeMillis = System.currentTimeMillis() - startTime; //tempo total de execução do programa
         System.out.println("Time:" + elapsedTimeMillis);
         
