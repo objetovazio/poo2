@@ -19,15 +19,7 @@ public class MoveFile {
         final long startTime = System.currentTimeMillis();// tempo incial
         listaFiles = MoveFile.getSingleTonListaFiles(); //le arquivos do diretorio e coloca na listaFiles         
         
-        System.out.println("Iniciando copiar de arquivos");
-        
-        /* for(int i = 0; i < listaFiles.length; i++) {
-        File origem = new File(listaFiles[i].getAbsolutePath());
-        String destinationFile = listaFiles[i].getAbsolutePath();
-        destinationFile = destinationFile.replace("origem", "destino");
-        copyFile(origem, new File(destinationFile));
-        }     */ 
-        
+        System.out.println("Iniciando copiar de arquivos");        
         
         RunnableMoveFile rmf1 = new RunnableMoveFile(listaFiles, "T1");
         RunnableMoveFile rmf2 = new RunnableMoveFile(listaFiles, "T2");

@@ -77,33 +77,30 @@ public class SaveImage extends Component implements ActionListener {
     int lastOp;
     public void filterImage() {
         BufferedImageOp op = null;
- 
+        Strategy strategy = null;
+        
         if (opIndex == lastOp) {
             return;
         }
         lastOp = opIndex;
         switch (opIndex) {
- 
+            
         case 0: /* original */
                 biFiltered = bi;
                 return; 
         case 1:  /* low pass filter */
+            strategy = new LowPass();
+            break;
         case 2:  /* sharpen */
-            float[] data = (opIndex == 1) ? BLUR3x3 : SHARPEN3x3;
-            op = new ConvolveOp(new Kernel(3, 3, data),
-                                ConvolveOp.EDGE_NO_OP,
-                                null);
+            strategy = new Sharpen();
             break;
         case 3 : /* lookup */
-            byte lut[] = new byte[256];
-            for (int j=0; j<256; j++) {
-                lut[j] = (byte)(256-j); 
-            }
-            ByteLookupTable blut = new ByteLookupTable(0, lut); 
-            op = new LookupOp(blut, null);
+            strategy = new LookUp();
             break;
         }
  
+        op = strategy.filter();
+        
         /* Rather than directly drawing the filtered image to the
          * destination, filter it into a new image first, then that
          * filtered image is ready for writing out or painting. 
