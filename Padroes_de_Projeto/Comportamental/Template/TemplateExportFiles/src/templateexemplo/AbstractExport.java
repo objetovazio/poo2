@@ -10,7 +10,18 @@ package templateexemplo;
  * @author andre
  */
 public abstract class AbstractExport {
+    
+    private String txt;
+    
+    public AbstractExport(String txt){
+        this.txt = txt;
+        start();
+        export(txt);
+        save();
+    }
+    
+    public abstract void start();
     public abstract void export(String txt);
-    protected abstract void printLine(String linha);
-
+    public abstract void save();
+    public abstract void printLine(String linhas);
 }
