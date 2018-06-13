@@ -5,26 +5,24 @@
  */
 package ifes.semaforo;
 
-
 /**
  *
  * @author andre
  */
-public class RedLight extends StateSemaforo{
-
-    public RedLight(int ti) {
+public class YellowLight extends StateSemaforo {
+    public YellowLight(int ti) {
         super(ti);
     }
-    
+
     @Override
     public void doAction() {
         setStartTime();
         updateCurrentTime();
-        System.out.println(lightColor() + "Semáforo vermelho: " + (currentTime()) + this.colorReset());
+        System.out.println(lightColor() + "Semáforo Amarelo: " + (currentTime()) + this.colorReset());
     }
 
     @Override
     public String lightColor() {
-        return "\u001B[31m";
+        return "\u001B[33m";
     }
 }

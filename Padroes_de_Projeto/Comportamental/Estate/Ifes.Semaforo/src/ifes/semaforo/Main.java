@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package ifes.semaforo;
+    
+import java.util.Timer;
 
 /**
  *
@@ -16,6 +18,10 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Semaforo semaforo = new Semaforo();
+        
+        semaforo.setupSemaforo();
+        semaforo.iniciaSemaforo();
     }
     
 }
